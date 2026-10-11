@@ -1,62 +1,73 @@
 # Rezerviz — SaaS Randevu ve İşletme Yönetim Platformu
 
-**Portföy / Proje Tanıtımı · 2026 · 2 kişilik ekip projesi**
+**Ürün geliştirme portföyü · 2026 · 2 kişilik ekip**
 
-Rezerviz, randevuyla çalışan küçük hizmet işletmelerinin rezervasyon, çalışan, hizmet ve günlük operasyon süreçlerini tek bir dijital ortamda yönetmesini hedefleyen bir SaaS uygulaması prototipidir.
+Rezerviz, randevuyla çalışan küçük hizmet işletmelerinin müşteri rezervasyonlarını, personelini, hizmetlerini ve günlük operasyonlarını tek bir panelde yönetebilmesi için geliştirdiğimiz bir SaaS prototipidir.
 
-> **Durum:** İlk geliştirme sürümü tamamlandı; ticari kullanıma açılmadı. Canlı uygulama ve demo sunucusu şu anda aktif değildir. Bu depo yalnızca portföy amaçlıdır; uygulamanın kaynak kodunu içermez.
+> **Proje durumu:** İlk geliştirme sürümü tamamlandı; ticari kullanıma açılmadı. Bu depo bir **ürün tanıtımıdır**; uygulama kaynak kodu ayrı bir özel depoda tutulmaktadır. Görseller yerel geliştirme ortamından alınmıştır; gerçek müşteri verisi kullanılmamıştır.
 
-## Problem ve çözüm
+## Üründen ekranlar
 
-Randevuların manuel takibi; müsaitlik kontrolü, çalışan planlaması ve randevu çakışmalarının önlenmesini zorlaştırabilir. Rezerviz, işletme yönetim paneli ve müşteriye dönük rezervasyon akışıyla bu süreçleri dijitalleştirmeyi amaçlar.
+### 1. Ürün ana sayfası
+![Rezerviz ana sayfa](screenshots/01-ana-sayfa.jpg)
 
-## Geliştirilen başlıca işlevler
+### 2. Çoklu işletme yönetimi
+Bir hesaba bağlı işletmeleri görüntüleme ve her işletmenin paneline veya rezervasyon sayfasına erişme.
+![İşletmelerim ekranı](screenshots/02-isletmeler.jpg)
+
+### 3. Müşteri rezervasyon deneyimi
+Hizmet, tarih ve saat seçimi; rezervasyon bilgilerinin girilmesi ve talep akışı.
+![Müşteri rezervasyon ekranı](screenshots/03-musteri-rezervasyon.jpg)
+
+### 4. Takvim ve müsaitlik yönetimi
+İşletmenin gün ve saat bazında uygunluk durumunu izlemesi; dolu ve açık slotların ayrıştırılması.
+![Takvim ve randevu saatleri](screenshots/04-takvim-ve-saatler.jpg)
+
+### 5. Personel yönetimi
+Çalışan kaydı, aktiflik durumu ve personel listesi.
+![Çalışan yönetimi](screenshots/05-calisan-yonetimi.jpg)
+
+### 6. Hizmet yönetimi
+Hizmet süresi ve ücretlerinin tanımlanması; hizmetlerin personele atanması.
+![Hizmet yönetimi](screenshots/06-hizmet-yonetimi.jpg)
+
+### 7. E-posta doğrulama akışı
+Rezervasyon oluşturma sürecinde doğrulama kodu arayüzü.
+![E-posta doğrulama](screenshots/07-eposta-dogrulama.jpg)
+
+## Çözülen problem
+
+Manuel randevu takibi; çalışan müsaitliği, hizmet süreleri ve çakışmaların kontrolünü zorlaştırır. Rezerviz, müşterinin çevrim içi rezervasyon oluşturması ile işletmenin operasyonları tek panelden yönetmesini aynı veri modeli etrafında birleştirir.
+
+## Temel özellikler
 
 - İşletme, çalışan ve hizmet yönetimi
-- Çalışma saatleri ve uygun zaman dilimlerinin kontrolü
-- Çevrim içi rezervasyon talebi, oluşturma ve onay akışları
-- Randevu çakışmalarını önlemeye yönelik kontroller
-- Kullanıcı kayıt, giriş ve yetkilendirme akışları
-- İşletme yönetim paneli ve randevu takibi
-- Stok ve bildirim işlemlerine yönelik uygulama uç noktaları
+- Çalışma saatleri ve randevu slotları
+- Müşteri rezervasyon akışı ve e-posta doğrulama
+- Müsaitlik ve çakışma kontrolleri
+- Kimlik doğrulama ve yetkilendirme
+- Yönetim paneli, bildirim ve stok yönetimi işlevleri
 
-## Teknoloji ve mimari
+## Teknoloji yığını
 
-| Katman | Kullanılan teknolojiler |
+| Katman | Teknolojiler |
 | --- | --- |
-| Uygulama ve arayüz | Next.js (App Router), React, TypeScript, Tailwind CSS |
-| API | Next.js Route Handlers, REST tarzı HTTP uç noktaları |
+| Arayüz | Next.js (App Router), React, TypeScript, Tailwind CSS |
+| Sunucu / API | Next.js Route Handlers, HTTP API uç noktaları |
 | Veri ve kimlik doğrulama | PostgreSQL, Supabase, Supabase Auth |
 | Sürüm kontrolü | Git, GitHub |
-| Yayın / altyapı çalışmaları | Vercel, Cloudflare |
+| Dağıtım çalışmaları | Vercel, Cloudflare |
 
-**Yüksek seviyeli akış:** Müşteri rezervasyon ekranı / işletme paneli → Next.js uygulaması ve API uç noktaları → Supabase kimlik doğrulama ve PostgreSQL veri katmanı.
+**Yüksek seviyeli mimari:** Müşteri rezervasyon ekranı / işletme paneli → Next.js uygulaması ve sunucu API'leri → Supabase Auth ve PostgreSQL.
 
 ## Projedeki katkım
 
-İki kişilik ekipte ürünün farklı geliştirme aşamalarında görev aldım. Özellikle:
+İki kişilik geliştirme ekibinde farklı aşamalarda görev aldım. Özellikle ilişkisel veri modeli tasarımı, Supabase/PostgreSQL entegrasyonu, kullanıcı yetkilendirmesi ve veri erişim güvenliği üzerinde çalıştım. Rezervasyon akışları, müsaitlik kontrolleri, yönetim paneli ve test süreçlerine de katkı sağladım.
 
-- İlişkisel veri tabanı tasarımı ve işletme, çalışan, hizmet, randevu verilerinin modellenmesi
-- Supabase ve PostgreSQL üzerinde veri erişimi, kullanıcı yetkilendirme ve güvenlik yapılandırmaları
-- Veri işlemleri ve uygulama–veri tabanı entegrasyonlarının geliştirilmesi
-- Rezervasyon akışlarının ve müsaitlik / çakışma kontrollerinin uygulanmasına katkı
-- Uygulamanın test edilmesi ve yayın altyapısının hazırlanması
+## Ürün geliştirme kazanımları
 
-## Ürün geliştirme açısından kazanımlar
-
-- İşletme ihtiyacını dijital ürün işlevlerine dönüştürme
-- Veri modeli ile kullanıcı akışları arasındaki ilişkiyi kurma
-- Yetkilendirme, veri güvenliği ve operasyonel kuralları birlikte değerlendirme
-- Küçük ekipte uçtan uca ürün geliştirme ve koordinasyon
-
-## Ekran görüntüleri
-
-Güvenli ve kişisel veri içermeyen ürün ekran görüntüleri hazırlandığında bu bölüme eklenecektir. Bu depo canlı demo veya çalıştırılabilir uygulama sunmaz.
+İşletme ihtiyaçlarını işlevsel gereksinimlere dönüştürme, müşteri ve işletme kullanıcı akışlarını tasarlama, veri modelini operasyonel kurallarla ilişkilendirme ve küçük ekipte uçtan uca ürün geliştirme.
 
 ## Kaynak kodu ve güvenlik
 
-Uygulamanın kaynak kodu ayrı bir **özel (private)** depoda tutulur. Bu portföy deposunda API anahtarları, ortam değişkenleri, müşteri verileri, veritabanı dökümleri veya gizli altyapı ayrıntıları paylaşılmaz.
-
----
-
-**CV için kısa açıklama:** Rezerviz — küçük hizmet işletmelerinin randevu ve operasyon süreçlerini dijitalleştiren SaaS prototipi. İki kişilik ekipte özellikle PostgreSQL/Supabase veri modeli, kimlik doğrulama, erişim yetkilendirmesi ve veri güvenliği alanlarında çalıştım.
+Bu depo **yalnızca portföy sunumu** içerir. Kaynak kodu, `.env` dosyaları, API anahtarları ve veri tabanı dökümleri paylaşılmaz. Görsellerde örnek/test verileri kullanılmıştır. Canlı demo şu anda sunulmamaktadır.
